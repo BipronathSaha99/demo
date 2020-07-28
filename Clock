@@ -1,0 +1,24 @@
+#import tkinter for gui
+from tkinter import *
+from tkinter.ttk import *
+# import time to use time function
+from time import strftime
+#create main window like clock
+clock = Tk()
+# title is used to give a name of this clock.
+clock.title("My Clock")
+# To fix the geometry of  clock
+clock.geometry("200x150")
+
+# call a time function
+def time():
+	watchTime = strftime("%I:%M:%S %p")
+	appName.config(text=watchTime)
+	appName.after(1000, time)
+
+appName = Label(clock, font=("Arial Bold", 25), background='black', foreground='aqua')
+appName.grid(column=0, row=0)
+appName.pack(side=TOP)
+time()
+
+clock.mainloop()
